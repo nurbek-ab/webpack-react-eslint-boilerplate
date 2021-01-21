@@ -21,7 +21,7 @@
   "dependencies": {
     "core-js": "3.6.4",
     "date-fns": "2.9.0",
-    "immer": "5.3.6",
+    "immer": "8.0.1",
     "loglevel": "1.6.7",
     "memoize-one": "5.1.1",
     "polished": "3.4.4",
