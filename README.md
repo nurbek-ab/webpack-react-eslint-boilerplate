@@ -1,4 +1,4 @@
-**Webpack + React + Babel + ESLint boilerplate for your next project.**
+**Webpack + React + ESLint boilerplate for your next project.**
 
 This is a basic boilerplate for a react project. 
 It has some features you most likely will need in your next react project, like:
