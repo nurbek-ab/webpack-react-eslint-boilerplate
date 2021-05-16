@@ -1,6 +1,5 @@
-const merge = require('webpack-merge');
+const webpackMerge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const common = require('./webpack.config.js');
 
@@ -11,12 +10,8 @@ const config = {
   mode: NODE_ENV,
   devtool: false,
   plugins: [
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      openAnalyzer: false
-    }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin.CleanWebpackPlugin()
   ]
 };
 
-module.exports = merge(common(NODE_ENV), config);
+module.exports = webpackMerge.merge(common(NODE_ENV), config);

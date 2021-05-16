@@ -2,20 +2,15 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const GitRevisionPlugin = require('git-revision-webpack-plugin');
 
 
 const { resolve } = path;
 
-const gitRevisionPlugin = new GitRevisionPlugin();
-
 module.exports = (NODE_ENV) => ({
   plugins: [
-    gitRevisionPlugin,
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(NODE_ENV),
-        VERSION: JSON.stringify(gitRevisionPlugin.version())
       }
     }),
     new HtmlWebPackPlugin({
