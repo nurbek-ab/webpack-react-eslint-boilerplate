@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 
 
 const { resolve } = path;
@@ -41,20 +42,8 @@ module.exports = (NODE_ENV) => ({
         }
       },
       {
-        test: /(\.css)$/,
-        use: [
-          {
-            loader: 'style-loader'
-          }, {
-            loader: MiniCssExtractPlugin.loader
-          }, {
-            loader: 'css-loader',
-            options: { sourceMap: true }
-          }, {
-            loader: 'postcss-loader',
-            options: { ident: 'postcss', plugins: () => [require('autoprefixer')], sourceMap: true }
-          }
-        ]
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
