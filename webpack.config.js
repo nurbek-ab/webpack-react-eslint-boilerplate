@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const postcssPresetEnv = require('postcss-preset-env');
 
 
 const { resolve } = path;
@@ -23,7 +22,6 @@ module.exports = (NODE_ENV) => ({
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ],
   watchOptions: {
     ignored: /node_modules/
@@ -43,7 +41,16 @@ module.exports = (NODE_ENV) => ({
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          'postcss-loader'
+        ]
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,

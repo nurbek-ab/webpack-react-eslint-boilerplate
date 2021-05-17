@@ -1,10 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 module.exports = {
   plugins: [
-    [
-      'postcss-preset-env',
-      {
-        // Options
-      },
-    ],
+    require('postcss-preset-env'),
+    require('postcss-nested'),
+    require('autoprefixer')
   ],
 };

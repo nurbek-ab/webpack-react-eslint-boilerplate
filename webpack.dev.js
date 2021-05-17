@@ -7,6 +7,7 @@ const NODE_ENV = 'development';
 
 const config = {
   mode: NODE_ENV,
+  target: 'web',
   devtool: 'source-map',
   module: {
     rules: [
